@@ -1,1 +1,1 @@
-print("hello worl!")
+import pygame
