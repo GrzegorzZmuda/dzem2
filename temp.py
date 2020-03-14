@@ -13,19 +13,19 @@ class klocek():
     def __init__(self,actual):
         self.h=10
         self.z=9
-
+        #self.shape=[[1,1][1,1]]
         self.ee=np.array([255,255,100])
         self.col=actual
     def left(self):
         self.z=self.z-1
-        if self.z<10:
+        if self.z<0:
             self.z=19
 
     def right(self):
         self.z = self.z + 1
         if self.z>19:
             self.z=0
-    def lower(self):
+    def lower(self,wyn):
         if self.h<89 :
             actual[self.z][self.h]=[0,0,0]
         self.h=self.h+1
@@ -43,7 +43,14 @@ class klocek():
             self.h = 10
             if N==0:
                 a.right()
-
+        rand=random.randint(0,100)
+        if rand<wyn:
+            print("ello")
+            side = random.randint(1, 2)
+            if side==1:
+                a.right()
+            else:
+                a.left()
 
 
 def checkbounds(a,b):
@@ -115,12 +122,13 @@ while Running:
             exit()
     pygame.event.pump()
     keys = pygame.key.get_pressed()
-    a.lower()
+    a.lower(score)
     if keys[pygame.K_a]:
         a.left()
     if keys[pygame.K_d]:
         a.right()
+    if not keys[pygame.K_s]:
+        pygame.time.wait(30)
 
-    #pygame.time.wait(10)
 
 
