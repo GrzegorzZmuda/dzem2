@@ -13,20 +13,31 @@ class klocek():
     def __init__(self,actual):
         self.h=10
         self.z=9
+<<<<<<< Updated upstream
         #self.shape=[[1,1][1,1]]
+=======
+
+>>>>>>> Stashed changes
         self.ee=np.array([255,255,100])
         self.col=actual
     def left(self):
-        self.z=self.z-1
+        if self.z>0 and actual[self.z-1][self.h][2]!=100:
+            self.z=self.z-1
+        if self.z==0 and actual[19][self.h][2]!=100:
+            self.z=self.z-1
         if self.z<0:
             self.z=19
 
     def right(self):
-        self.z = self.z + 1
+        if self.z<19 and actual[self.z+1][self.h][2] != 100:
+            self.z = self.z + 1
+        elif self.z==19 and actual[0][self.h][2] != 100:
+            self.z = self.z + 1
         if self.z>19:
             self.z=0
     def lower(self,wyn):
         if self.h<89 :
+
             actual[self.z][self.h]=[0,0,0]
         self.h=self.h+1
         if self.h>89:
@@ -45,7 +56,7 @@ class klocek():
                 a.right()
         rand=random.randint(0,100)
         if rand<wyn:
-            print("ello")
+
             side = random.randint(1, 2)
             if side==1:
                 a.right()
