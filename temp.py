@@ -13,7 +13,7 @@ class klocek():
     def __init__(self,actual):
         self.h=10
         self.z=9
-        #self.shape=[[1,1][1,1]]
+        self.shape=[[1,1][1,1]]
         self.ee=np.array([255,255,100])
         self.col=actual
     def left(self):
