@@ -97,9 +97,35 @@ textRect = text.get_rect()
 textRect.center = (0,0)
 
 actual = np.zeros((20, 90, 3))
+
+
+
+
 a=klocek(actual)
 Running=True
 while Running:
+    actual[4, 0] = [70, 20, 20]
+    actual[4, 1] = [128, 128, 128]
+    actual[3, 2] = [128, 128, 128]
+    actual[4, 2] = [128, 128, 128]
+    actual[5, 2] = [128, 128, 128]
+    actual[3, 3] = [128, 128, 128]
+    actual[4, 3] = [128, 128, 128]
+    actual[5, 3] = [128, 128, 128]
+    actual[3, 4] = [128, 10, 10]
+    actual[4, 4] = [128, 10, 10]
+    actual[5, 4] = [128, 10, 10]
+    actual[3, 5] = [128, 10, 10]
+    actual[4, 5] = [128, 10, 10]
+    actual[5, 5] = [128, 10, 10]
+    actual[3, 6] = [128, 128, 128]
+    actual[4, 6] = [128, 128, 128]
+    actual[5, 6] = [128, 128, 128]
+    actual[3, 7] = [0, 0, 0]
+    actual[4, 7] = [0, 0, 0]
+    actual[5, 7] = [0, 0, 0]
+
+
     text = font.render(str(score), True, (200, 200, 200), (0, 0, 0))
     for i in range(len(actual[1])):
         flag=True
