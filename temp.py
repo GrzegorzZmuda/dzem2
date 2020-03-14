@@ -6,7 +6,7 @@ import random
 import math
 from sys import exit
 #autopilot
-N=0
+N=1
 
 
 class klocek():
