@@ -6,18 +6,14 @@ import random
 import math
 from sys import exit
 #autopilot
-N=1
+N=0
 
 
 class klocek():
     def __init__(self,actual):
         self.h=10
         self.z=9
-<<<<<<< Updated upstream
-        #self.shape=[[1,1][1,1]]
-=======
 
->>>>>>> Stashed changes
         self.ee=np.array([255,255,100])
         self.col=actual
     def left(self):
