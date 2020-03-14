@@ -5,7 +5,8 @@ import time
 import random
 import math
 from sys import exit
-
+#autopilot
+N=0
 
 
 class klocek():
@@ -30,7 +31,8 @@ class klocek():
         self.h=self.h+1
         if self.h>89:
             self.h=10
-            a.right()
+            if N==0:
+                a.right()
         elif actual[self.z][self.h][2]==100:
             if self.h<30:
                 pygame.quit()
@@ -39,7 +41,8 @@ class klocek():
             actual[self.z][self.h - 1][1] = 250
             actual[self.z][self.h - 1][2] = 100
             self.h = 10
-            a.right()
+            if N==0:
+                a.right()
 
 
 
@@ -70,16 +73,20 @@ background = pygame.Surface(screen.get_size())
 background = background.convert()
 background.fill((250, 250, 250))
 
-
+score=0
 conv(actual,scr)
 sfr.make_surface(scr)
+font = pygame.font.Font('freesansbold.ttf', 20)
+text = font.render(str(score), True, (200,200,200), (0,0,0))
+textRect = text.get_rect()
 
+textRect.center = (0,0)
 
 actual = np.zeros((20, 90, 3))
 a=klocek(actual)
 Running=True
 while Running:
-
+    text = font.render(str(score), True, (200, 200, 200), (0, 0, 0))
     for i in range(len(actual[1])):
         flag=True
         for j in range(len(actual)):
@@ -87,6 +94,7 @@ while Running:
                 flag=False
 
         if flag == True:
+            score=score+1
             for k in range(len(actual)):
 
                 actual[k][i][0]=0
@@ -99,6 +107,7 @@ while Running:
     actual[a.z][a.h][2] = a.ee[2]
     surf = pygame.surfarray.make_surface(actual)
     screen.blit(pygame.transform.scale(surf, (160, 720)), (0, 0))
+    screen.blit(text,(0,0))
     pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
